@@ -1,0 +1,22 @@
+.addVersionButton {
+  position: absolute;
+  margin-top: 650px;
+  margin-left: 1720px;
+}
+
+.card-buttons {
+  display: inline;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+}
+
+.card-tool-button {
+  width: 35px !important;
+  height: 35px;
+
+  svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}

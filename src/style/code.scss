@@ -1,0 +1,17 @@
+.code-platform {
+  width: 50%;
+  text-align: center;
+  float: left;
+  font-size: 14px;
+  line-height: 36px;
+  font-family: Roboto, sans-serif;
+
+  &-disabled {
+    color: #dedede;
+  }
+
+  &-enabled {
+    color: #24bd30;
+    font-weight: 500;
+  }
+}

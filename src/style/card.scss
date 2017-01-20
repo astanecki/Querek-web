@@ -1,0 +1,105 @@
+.card {
+  width: 290px;
+  margin: 10px;
+  float: left;
+
+  .content-add {
+    height: 85px !important;
+    margin: 60px auto !important;
+    fill: #20aa2b !important;
+  }
+
+  &-media {
+    margin-bottom: 16px;
+    height: 130px;
+  }
+
+  &-code {
+    display: table;
+    margin: 0 auto;
+  }
+
+  &-text {
+    padding: 0 16px 10px 16px !important;
+    /*padding: 0 16px !important;*/
+    height: 85px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height:5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: lightblue;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: cadetblue;
+    }
+  }
+
+  &-overlay {
+    padding: 0 0 6px 16px !important;
+  }
+}
+
+// TODO create mixins
+
+@media (max-width: 320px) {
+  .card {
+    display: table;
+    float: none;
+    width: 100%;
+    //margin: 15px auto 0 auto;
+
+    &-text {
+      display: none;
+    }
+
+    .content-add {
+      margin: 15px auto !important;
+    }
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  //body {
+  //  background-color: blue;
+  //}
+
+  .card {
+    float: none;
+    display: table;
+    margin: 15px auto 0 auto;
+    width: 80%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  //body {
+  //  background-color: green;
+  //}
+
+  .card {
+    width: 235px;
+  }
+}
+
+//@media  screen and (min-width: 601px) and (max-width: 768px) {
+//  body {
+//    background-color: cadetblue;
+//  }
+//}
+
+//@media  screen and (min-width: 767px) and (max-width: 900px) {
+//  body {
+//    background-color: darkslategrey;
+//  }
+//}
+//
+//@media  screen and (min-width: 901px) and (max-width: 1024px) {
+//  body {
+//    background-color: green;
+//  }
+//}

@@ -2,12 +2,12 @@
 module.exports = {
 
     APP: {
-        TITLE: "Querek",
+        TITLE: "Apps Kuerek",
         LOGO_URL: "https://lh3.googleusercontent.com/aHEx5b92j6eBhJPBRg1b7_rb7icGn7fzAyUPfhBgMG6uOnB16bXgCLjXkMPybI2wYg=w300"
     },
 
     NETWORK: {
-        SERVER_IP: 'http://X.X.X.X:3001'
+        SERVER_IP: 'http://192.168.0.106:3001'
     },
 
     LOADER: {
