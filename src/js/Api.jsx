@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var config = require('./Config.jsx');
 var socket = require('socket.io-client')(config.NETWORK.SERVER_IP);
 

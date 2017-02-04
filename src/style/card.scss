@@ -5,16 +5,25 @@
 
   .content-add {
     height: 85px !important;
-    margin: 60px auto !important;
+    width: 40px !important;
     fill: #20aa2b !important;
   }
 
-  &-media {
+  .card-media {
     margin-bottom: 16px;
     height: 130px;
+
+    &__button-wrapper {
+      height: 130px;
+    }
+
+    &__button {
+      width: 100%;
+      height: 100% !important;
+    }
   }
 
-  &-code {
+  .card-code {
     display: table;
     margin: 0 auto;
   }

@@ -1,56 +1,61 @@
-/** @jsx React.DOM */
-var React = require('react');
-
-var config = require('./Config.jsx');
-var Code = require('./Code.jsx');
-var CardPlatforms = require('./CardPlatforms.jsx');
-
-var Card = require('material-ui').Card;
-var CardTitle = require('material-ui').CardTitle;
-var CardHeader = require('material-ui').CardHeader;
-var CardMedia = require('material-ui').CardMedia;
-var CardText = require('material-ui').CardText;
-var Divider = require('material-ui').Divider;
-var FlatButton  = require('material-ui').FlatButton;
-
-var ContentAdd = require('material-ui/lib/svg-icons/content/add');
+import React from 'react';
+import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import config from './Config.jsx';
+import Code from './Code.jsx';
+import CardPlatforms from './CardPlatforms.jsx';
+import Divider from 'material-ui/Divider';
+import FlatButton from 'material-ui/FlatButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 module.exports = React.createClass({
 
+    /**
+     * @function
+     */
     componentDidMount: function () {
         console.log('Empty release card mount!');
     },
 
+    /**
+     * @function
+     * @returns {Array.<Object>}
+     */
     readPlatforms: function () {
         return this.props.code.platforms;
     },
 
+    /**
+     * @function
+     * @returns {XML}
+     */
     render: function () {
         return (
             <Card
                 className='card card__empty'>
+
                 <CardHeader
                     title={"Fitatu"}
                     subtitle={"Dziś"}
                     avatar={config.APP.LOGO_URL}/>
 
-                <FlatButton
-                    onClick={this.props.onAddClick}>
+                <CardMedia
+                    className='card-media'>
 
-                    <CardMedia
-                        className='card-media'>
+                    <div
+                        className="card-media__button-wrapper">
 
-                        <ContentAdd
-                            className="content-add"/>
+                        <FlatButton
+                            className="card-media__button"
+                            onClick={this.props.onAddClick}
+                            icon={<ContentAdd className="content-add"/>}
+                        />
+                    </div>
 
-                    </CardMedia>
+                </CardMedia>
 
-                    <CardText
-                        className='card-text'>
-                    </CardText>
-
-                    <Divider />
-                </FlatButton>
+                <CardText
+                    className='card-text'/>
+                <Divider />
 
                 <CardPlatforms
                     platforms={[]}/>

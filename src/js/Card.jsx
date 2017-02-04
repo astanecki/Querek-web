@@ -1,4 +1,13 @@
-/** @jsx React.DOM */
+import MenuItem from 'material-ui/MenuItem';
+
+import IconMenu from 'material-ui/IconMenu';
+import IconButton from 'material-ui/IconButton';
+import ModeEdit from 'material-ui/svg-icons/editor/mode-edit';
+import FileDownload from 'material-ui/svg-icons/file/file-download';
+import RemoveFile from 'material-ui/svg-icons/content/clear';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+
+// todo load in es6
 var React = require('react');
 
 var Api = require('./Api.jsx');
@@ -12,15 +21,6 @@ var CardHeader = require('material-ui').CardHeader;
 var CardMedia = require('material-ui').CardMedia;
 var CardText = require('material-ui').CardText;
 var Divider = require('material-ui').Divider;
-
-var IconButton = require('material-ui/lib/icon-button');
-var ModeEdit = require('material-ui/lib/svg-icons/editor/mode-edit');
-var FileDownload = require('material-ui/lib/svg-icons/file/file-download');
-var RemoveFile = require('material-ui/lib/svg-icons/content/clear');
-
-var IconMenu = require('material-ui/lib/menus/icon-menu');
-var MenuItem = require('material-ui/lib/menus/menu-item');
-var MoreVertIcon = require('material-ui/lib/svg-icons/navigation/more-vert');
 
 module.exports = React.createClass({
 

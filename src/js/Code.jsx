@@ -1,6 +1,6 @@
-var React  = require('react');
-var config = require('./Config.jsx');
-var QRCode = require('../libs/QrCode.jsx');
+import React from 'react';
+import Config from './Config.jsx';
+import QRCode from '../libs/QrCode.jsx';
 
 /**
  * Draws QRCode with given version
@@ -24,7 +24,7 @@ module.exports = React.createClass({
      * @returns {String}
      */
     getCodeText: function () {
-        return config.NETWORK.SERVER_IP+ '/app?type=' + this.props.type + '&version=' + this.props.version;
+        return Config.NETWORK.SERVER_IP+ '/app?type=' + this.props.type + '&version=' + this.props.version;
     },
 
     /**

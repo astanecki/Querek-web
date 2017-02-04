@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 var Card = require('./Card.jsx');
 var Dialog = require('./Dialog.jsx');

@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var React   = require('react');
 var RefreshIndicator  = require('material-ui').RefreshIndicator;
 

@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var React   = require('react');
 var AppBar  = require('material-ui').AppBar;
 var FlatButton  = require('material-ui').FlatButton;

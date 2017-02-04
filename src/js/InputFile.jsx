@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 var FlatButton  = require('material-ui').FlatButton;
 var RaisedButton  = require('material-ui').RaisedButton;
 
