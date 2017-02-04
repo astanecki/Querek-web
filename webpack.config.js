@@ -13,24 +13,25 @@ var path = require('path');
 module.exports = {
     entry: './src/js/App.jsx',
     output: {
-        path: 'dist',
-        publicPath: '/dist',
-        filename: 'bundle.js'
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/dist'
     },
     module: {
         loaders: [{
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
-        }, {
-            test: /\.jsx?$/,
-            loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+
+        },{
+            test: /.jsx?$/,
+            loader: 'babel-loader',
+            include: path.join(__dirname, 'src'),
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015', 'react']
+            }
         }]
     },
-    //externals: {
-    //    //don't bundle the 'react' npm package with our bundle.js
-    //    //but get it from a global 'React' variable
-    //    'react': 'React'
-    //},
     resolve: {
         alias: {
             // helps with madness about a few version of react in node_modules (probably in material-ui
@@ -39,17 +40,6 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     plugins: [
-    //    //new webpack.optimize.UglifyJsPlugin({
-    //    //    compress: {
-    //    //        warnings: false
-    //    //    },
-    //    //    output: {
-    //    //        comments: false
-    //    //    }
-    //    //}),
-    //    new HtmlWebpackPlugin({
-    //        title: CONFIG.APP.TITLE
-    //    }),
         new ExtractTextPlugin("bundle.css", {allChunks: true})
     ]
 };
