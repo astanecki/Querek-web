@@ -1,10 +1,17 @@
-var React   = require('react');
-var CardPlatform = require('./CardPlatform.jsx');
+import React from 'react';
+import CardPlatform from './CardPlatform.jsx';
 
 module.exports = React.createClass({
 
+    /**
+     * @type {Array.<String>}
+     */
     platforms: ["android", "ios"],
 
+    /**
+     * @function
+     * @returns {XML}
+     */
     render: function () {
         return (
             <div>

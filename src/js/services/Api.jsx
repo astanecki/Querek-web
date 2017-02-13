@@ -1,4 +1,4 @@
-var config = require('./Config.jsx');
+import config from '../config/Config.jsx';
 var socket = require('socket.io-client')(config.NETWORK.SERVER_IP);
 
 module.exports = {

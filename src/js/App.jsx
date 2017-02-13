@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Main from './Main.jsx';
+import Main from './components/Main.jsx';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941

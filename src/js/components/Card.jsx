@@ -1,26 +1,26 @@
-import MenuItem from 'material-ui/MenuItem';
+import React from 'react';
 
+//Material content
+import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import ModeEdit from 'material-ui/svg-icons/editor/mode-edit';
 import FileDownload from 'material-ui/svg-icons/file/file-download';
 import RemoveFile from 'material-ui/svg-icons/content/clear';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-
-// todo load in es6
-var React = require('react');
-
-var Api = require('./Api.jsx');
-var config = require('./Config.jsx');
-var Code = require('./Code.jsx');
-var CardPlatforms = require('./CardPlatforms.jsx');
-
+//todo load in es6
 var Card = require('material-ui').Card;
 var CardTitle = require('material-ui').CardTitle;
 var CardHeader = require('material-ui').CardHeader;
 var CardMedia = require('material-ui').CardMedia;
 var CardText = require('material-ui').CardText;
 var Divider = require('material-ui').Divider;
+
+//Application content
+import Api from '../services/Api.jsx';
+import config from '../config/Config.jsx';
+import Code from './Code.jsx';
+import CardPlatforms from './CardPlatforms.jsx';
 
 module.exports = React.createClass({
 

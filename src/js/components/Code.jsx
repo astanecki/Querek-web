@@ -1,6 +1,6 @@
 import React from 'react';
-import Config from './Config.jsx';
-import QRCode from '../libs/QrCode.jsx';
+import Config from '../config/Config.jsx';
+import QRCode from '../../libs/QrCode.jsx';
 
 /**
  * Draws QRCode with given version

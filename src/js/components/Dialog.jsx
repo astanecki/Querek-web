@@ -1,7 +1,7 @@
-var React   = require('react');
+import React from 'react';
+import Api from '../services/Api.jsx';
 
-var Api = require('./Api.jsx');
-var InputApplicationFile   = require('./InputFile');
+import InputApplicationFile from './InputFile';
 
 var AppBar  = require('material-ui').AppBar;
 var Dialog  = require('material-ui').Dialog;

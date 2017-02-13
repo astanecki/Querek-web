@@ -1,12 +1,10 @@
-var React   = require('react');
+import React from 'react';
+import Api from '../services/Api.jsx';
 
-var Api = require('./Api.jsx');
-
-var TopBar  = require('./TopBar.jsx');
-var Loader  = require('./Loader.jsx');
-var TabVersions = require('./TabVersions.jsx');
-
-var config = require('./Config.jsx');
+import TopBar from './TopBar.jsx';
+import Loader from './Loader.jsx';
+import TabVersions from './TabVersions.jsx';
+import config from '../config/Config.jsx';
 
 module.exports = React.createClass({
 
