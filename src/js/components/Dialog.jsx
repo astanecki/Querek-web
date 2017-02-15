@@ -1,41 +1,57 @@
 import React from 'react';
+
 import Api from '../services/Api.jsx';
-
 import InputApplicationFile from './InputFile';
+import {AppBar, Dialog, FlatButton, TextField} from 'material-ui';
 
-var AppBar  = require('material-ui').AppBar;
-var Dialog  = require('material-ui').Dialog;
-var FlatButton  = require('material-ui').FlatButton;
-var TextField  = require('material-ui').TextField;
-
-var customContentStyle = {
-    width: '400px',
-    maxWidth: 'none'
-};
+const customContentStyle = {width: '400px', maxWidth: 'none'};
 
 module.exports = React.createClass({
 
+    /**
+     * @type {String}
+     */
     title: '',
 
+    /**
+     * @type {String}
+     */
     version: '',
 
+    /**
+     * @type {String}
+     */
     description: '',
 
+    /**
+     * @type {String}
+     */
     date: '',
 
+    /**
+     * @type {Object}
+     */
     files: {},
 
+    /**
+     * @function
+     */
     onClose: function () {
         console.log('close request');
 
         this.props.onClose();
     },
 
+    /**
+     * @function
+     * @returns {*}
+     */
     prepareNewVersion: function () {
         return {
             title:          this.title,
             description:    this.description,
             version:        this.version,
+            //TODO fill real data
             date:            '26.11.2015',
             platforms:      this.getSupportedPlatforms(),
             zip:            this.files.zip,
@@ -45,6 +61,9 @@ module.exports = React.createClass({
         };
     },
 
+    /**
+     * @function
+     */
     onSubmit: function () {
         console.log('submit request');
 
@@ -55,6 +74,10 @@ module.exports = React.createClass({
         this.props.onClose();
     },
 
+    /**
+     * @function
+     * @returns {Array.<String>}
+     */
     getSupportedPlatforms: function () {
         var supported = [];
 
@@ -69,6 +92,10 @@ module.exports = React.createClass({
         return supported;
     },
 
+    /**
+     * @function
+     * @param {Event} event
+     */
     onFileChange: function (event) {
         var file = event.target.files[0];
         var reader = new FileReader();
@@ -93,11 +120,19 @@ module.exports = React.createClass({
         }
     },
 
+    /**
+     * @function
+     * @param {Event} event
+     */
     onVersionChange: function (event) {
         this.version = event.target.value;
         this.title = 'Fitatu ' + this.version;
     },
 
+    /**
+     * @function
+     * @param {Event} event
+     */
     onDescriptionChange: function (event) {
         this.description = event.target.value;
     },

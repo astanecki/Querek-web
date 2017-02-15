@@ -1,6 +1,5 @@
-var React   = require('react');
-var AppBar  = require('material-ui').AppBar;
-var FlatButton  = require('material-ui').FlatButton;
+import React from 'react';
+import {AppBar, FlatButton} from 'material-ui';
 
 module.exports = React.createClass({
 

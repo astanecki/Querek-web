@@ -1,8 +1,12 @@
-var React   = require('react');
-var RefreshIndicator  = require('material-ui').RefreshIndicator;
+import React from 'react';
+import {RefreshIndicator} from 'material-ui';
 
 module.exports = React.createClass({
 
+    /**
+     * @function
+     * @returns {XML}
+     */
     render: function () {
         return (
             <div

@@ -10,12 +10,12 @@ import QRCode from '../../libs/QrCode.jsx';
 module.exports = React.createClass({
 
     /**
-     *
+     * @type {Number}
      */
     width: 128,
 
     /**
-     *
+     * @type {Number}
      */
     height: 128,
 

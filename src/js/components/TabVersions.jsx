@@ -1,12 +1,9 @@
 import React from 'react';
-
-var Card = require('./Card.jsx');
-var Dialog = require('./Dialog.jsx');
-var EmptyReleaseCard = require('./EmptyReleaseCard.jsx');
-var EmptyDeveloperCard = require('./EmptyDeveloperCard.jsx');
-
-var Tabs = require('material-ui').Tabs;
-var Tab = require('material-ui').Tab;
+import Card from './Card.jsx'
+import Dialog from './Dialog.jsx';
+import EmptyReleaseCard from './EmptyReleaseCard.jsx';
+import EmptyDeveloperCard from './EmptyDeveloperCard.jsx';
+import {Tab, Tabs}  from 'material-ui';
 
 /**
  * Draws QRCode with given version

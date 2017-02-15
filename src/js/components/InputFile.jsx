@@ -1,12 +1,8 @@
 import React from 'react';
-var FlatButton  = require('material-ui').FlatButton;
-var RaisedButton  = require('material-ui').RaisedButton;
+import {FlatButton, RaisedButton} from 'material-ui';
 
-var button = {
-    margin: 12
-};
-
-var  exampleImageInput = {
+const button = {margin: 12};
+const exampleImageInput = {
     cursor: 'pointer',
     position: 'absolute',
     top: 0,
