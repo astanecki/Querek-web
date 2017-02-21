@@ -7,7 +7,7 @@ module.exports = {
     },
 
     NETWORK: {
-        SERVER_IP: 'http://X.X.X.X:3001'
+        SERVER_IP: 'https://TUNNELING_TEMPORARY_IP:3001'
     },
 
     LOADER: {
