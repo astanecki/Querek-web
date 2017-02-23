@@ -1,7 +1,7 @@
 module.exports = {
 
     APP: {
-        TITLE: "Apps Kuerek",
+        TITLE: "{kuler}",
         LOGO_URL: "https://lh3.googleusercontent.com/aHEx5b92j6eBhJPBRg1b7_rb7icGn7fzAyUPfhBgMG6uOnB16bXgCLjXkMPybI2wYg=w300"
     },
 
