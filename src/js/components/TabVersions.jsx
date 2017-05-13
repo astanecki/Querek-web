@@ -5,6 +5,10 @@ import EmptyReleaseCard from './EmptyReleaseCard.jsx';
 import EmptyDeveloperCard from './EmptyDeveloperCard.jsx';
 import {Tab, Tabs}  from 'material-ui';
 
+const style = {
+    fontFamily: 'consolas',
+    backgroundColor: '#4f5357'
+};
 /**
  * Draws QRCode with given version
  *
@@ -77,6 +81,7 @@ module.exports = React.createClass({
                     onChange={this.handleChange}>
 
                     <Tab
+                        style={style}
                         label="Release"
                         value="release">
                         <div>
@@ -94,6 +99,7 @@ module.exports = React.createClass({
                     </Tab>
 
                     <Tab
+                        style={style}
                         label="Developer"
                         value="developer">
                         <div>

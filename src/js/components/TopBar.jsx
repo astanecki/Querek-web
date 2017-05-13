@@ -1,7 +1,7 @@
 import React from 'react';
 import {AppBar, FlatButton} from 'material-ui';
 
-const  style = {
+const style = {
     fontFamily: 'consolas',
     backgroundColor: '#24292e'
 };

@@ -6,7 +6,7 @@ module.exports = {
     },
 
     NETWORK: {
-        SERVER_IP: 'http://192.168.0.12:3001'
+        SERVER_IP: 'http://192.168.0.10:3001'
     },
 
     LOADER: {
