@@ -16,6 +16,7 @@ module.exports = React.createClass({
         return (
             <AppBar
                 style={style}
+                showMenuIconButton={false}
                 title={this.props.title}/>
         );
     }
