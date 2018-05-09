@@ -13,5 +13,9 @@
   &-enabled {
     color: #24bd30;
     font-weight: 500;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

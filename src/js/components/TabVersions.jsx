@@ -35,8 +35,8 @@ module.exports = React.createClass({
     addNewReleaseVersion: function () {
         this.setState({
             isDialogOpened: !this.state.isDialogOpened,
-            dialogTitle: 'Dodaj wersję releasową',
-            defaultName: 'v'
+            dialogTitle: 'New release version',
+            defaultName: ''
         });
     },
 
@@ -46,8 +46,8 @@ module.exports = React.createClass({
     addNewDeveloperVersion: function () {
         this.setState({
             isDialogOpened: !this.state.isDialogOpened,
-            dialogTitle: 'Dodaj wersję developerską',
-            defaultName: 'v'
+            dialogTitle: 'New develop version',
+            defaultName: ''
         });
     },
 

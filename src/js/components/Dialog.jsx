@@ -37,7 +37,7 @@ module.exports = React.createClass({
      * @function
      */
     onClose: function () {
-        console.log('close request');
+        console.log('onClose dialog');
 
         this.props.onClose();
     },
@@ -51,14 +51,19 @@ module.exports = React.createClass({
             title:          this.title,
             description:    this.description,
             version:        this.version,
-            //TODO fill real data
-            date:            '26.11.2015',
+            date:           this.getDate(),
             platforms:      this.getSupportedPlatforms(),
             zip:            this.files.zip,
             ipa:            this.files.ipa,
             apk:            this.files.apk,
             type:           this.props.type
         };
+    },
+
+    getDate: function () {
+        const date = new Date();
+
+        return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear()
     },
 
     /**
@@ -166,15 +171,18 @@ module.exports = React.createClass({
                 >
 
                 <TextField
-                    floatingLabelText="Wersja"
+                    fullWidth={true}
+                    floatingLabelText="Version"
                     defaultValue={this.props.defaultName}
                     onChange={this.onVersionChange}
                     /><br/>
 
                 <TextField
-                    floatingLabelText="Opis"
+                    fullWidth={true}
+                    floatingLabelText="Description"
                     multiLine={true}
-                    rows={2}
+                    rows={4}
+                    rowsMax={7}
                     onChange={this.onDescriptionChange}
                     /><br/>
 
