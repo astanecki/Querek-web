@@ -69,6 +69,12 @@ module.exports = React.createClass({
         });
     },
 
+    /**
+     * @function
+     */
+    onDeletedSuccess() {
+        this.props.fetchCodes();
+    },
 
     /**
      * @returns {XML}
@@ -88,9 +94,10 @@ module.exports = React.createClass({
                             <EmptyReleaseCard
                                 onAddClick={this.addNewReleaseVersion}/>
 
-                            {this.props.codes.release.map(function (code) {
+                            {this.props.codes.release.map(code => {
                                 return (
                                     <Card
+                                        fetchCodes={this.props.fetchCodes}
                                         key={code._id}
                                         code={code} />
                                 );
@@ -106,9 +113,10 @@ module.exports = React.createClass({
                             <EmptyDeveloperCard
                                 onAddClick={this.addNewDeveloperVersion}/>
 
-                            {this.props.codes.developer.map(function (code) {
+                            {this.props.codes.developer.map(code => {
                                 return (
                                     <Card
+                                        fetchCodes={this.props.fetchCodes}
                                         key={code._id}
                                         code={code} />
                                 );
@@ -122,6 +130,7 @@ module.exports = React.createClass({
                     title={this.state.dialogTitle}
                     defaultName={this.state.defaultName}
                     open={this.state.isDialogOpened}
+                    fetchCodes={this.props.fetchCodes}
                     onClose={this.onDialogClose}/>
             </div>
         );

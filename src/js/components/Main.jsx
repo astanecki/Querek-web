@@ -12,7 +12,7 @@ module.exports = React.createClass({
      * @returns {Object}
      */
     getInitialState: function () {
-        this.listenOnCodes();
+        this.fetchCodes();
 
         return {
             codes: {
@@ -29,33 +29,16 @@ module.exports = React.createClass({
     /**
      * @function
      */
-    listenOnCodes: function () {
-        var self = this;
+    fetchCodes() {
+        Api.fetch()
+            .then(({ data }) => {
+                console.log('fetch()', data);
 
-        Api.connect(function (codes) {
-            console.log('Available versions: ', codes);
-
-            self.setState({
-                loaderStatus: config.LOADER.HIDDEN,
-                codes: codes
+                this.setState({
+                    loaderStatus: config.LOADER.HIDDEN,
+                    codes: data
+                });
             });
-        });
-
-        Api.listenOnRelease(function (code) {
-            console.log('New release version: ', code);
-
-            self.setState({
-                newReleaseCode: code
-            });
-        });
-
-        Api.listenOnDeveloper(function (code) {
-            console.log('New developer version: ', code);
-
-            self.setState({
-                newDeveloperCode: code
-            });
-        });
     },
 
     /**
@@ -83,6 +66,7 @@ module.exports = React.createClass({
                     codes={this.state.codes}
                     newReleaseCode={this.state.newReleaseCode}
                     newDeveloperCode={this.state.newDeveloperCode}
+                    fetchCodes={() => this.fetchCodes()}
                     />
             </div>
         );

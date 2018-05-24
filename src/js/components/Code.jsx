@@ -24,7 +24,7 @@ module.exports = React.createClass({
      * @returns {String}
      */
     getCodeText: function () {
-        return Config.NETWORK.SERVER_IP+ '/application?type=' + this.props.type + '&version=' + this.props.version;
+        return `${Config.NETWORK.SERVER_IP}/applications/${this.props.type}/${this.props.version}`;
     },
 
     /**

@@ -12,14 +12,6 @@ import Code from './Code.jsx';
 import CardPlatforms from './CardPlatforms.jsx';
 
 module.exports = React.createClass({
-
-    /**
-     * @function
-     */
-    componentDidMount: function () {
-        console.log('Card mount!');
-    },
-
     /**
      * @function
      * @returns {Array.<String>}
@@ -34,18 +26,8 @@ module.exports = React.createClass({
     onRemoveClicked: function () {
         console.log('Removing ', this.props.code.version);
 
-        Api.removeApp(this.props.code);
-    },
-
-    /**
-     * @function
-     */
-    onDownloadZipClicked: function () {
-        Api.downloadFile({
-            type: this.props.code.type,
-            version: this.props.code.version,
-            extension: 'zip'
-        })
+        Api.delete(this.props.code)
+            .then(() => this.props.fetchCodes());
     },
 
     /**
@@ -70,8 +52,7 @@ module.exports = React.createClass({
                             targetOrigin={{horizontal: 'left', vertical: 'top'}}>
                             <MenuItem
                                 //TODO load from lang file
-                                primaryText="Pobierz ZIP"
-                                onClick={this.onDownloadZipClicked}/>
+                                primaryText="Pobierz ZIP" />
                             <MenuItem
                                 primaryText="Usuń"
                                 onClick={this.onRemoveClicked}/>

@@ -1,37 +1,16 @@
 import config from '../config/Config.jsx';
-var socket = require('socket.io-client')(config.NETWORK.SERVER_IP);
+import axios from 'axios';
 
 module.exports = {
-    connect: function (fn) {
-        socket.on('availableVersions', function (codes) {
-            //to make loader visible
-            setTimeout(function () {
-                fn(codes);
-            }, 1000);
-        });
+    fetch() {
+        return axios.get(`${config.NETWORK.SERVER_IP}/applications`);
     },
 
-    listenOnRelease: function (fn) {
-        socket.on('new-release-code', function (code) {
-            fn(code);
-        });
+    save(app, options = {}) {
+        return axios.post(`${config.NETWORK.SERVER_IP}/applications/${app.type}/${app.version}`, app, options);
     },
 
-    listenOnDeveloper: function (fn) {
-        socket.on('new-developer-code', function (code) {
-            fn(code);
-        });
-    },
-
-    sendApp: function (app) {
-        socket.emit('new-app', app);
-    },
-
-    removeApp: function (app) {
-        socket.emit('remove-app', app);
-    },
-
-    downloadFile: function (app) {
-        socket.emit('download-app', app);
+    delete(app) {
+        return axios.delete(`${config.NETWORK.SERVER_IP}/applications/${app.type}/${app.version}`, app);
     }
 };

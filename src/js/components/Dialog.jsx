@@ -69,14 +69,19 @@ module.exports = React.createClass({
     /**
      * @function
      */
-    onSubmit: function () {
-        console.log('submit request');
+    onSubmit() {
+        const options = {
+            onUploadProgress: progressEvent => {
+                console.log('Progress: ',  (progressEvent.loaded / progressEvent.total) * 100 + ' %');
+            }
+        };
 
-        Api.sendApp(this.prepareNewVersion());
+        Api.save(this.prepareNewVersion(), options)
+            .then(() => this.props.onClose())
+            .then(() => this.props.fetchCodes())
+            .catch(response => console.log('Error response: ', response));
 
-        // TODO clear data
-
-        this.props.onClose();
+        // TODO clear data in dialog
     },
 
     /**
