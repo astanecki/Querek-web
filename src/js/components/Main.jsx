@@ -43,13 +43,6 @@ module.exports = React.createClass({
 
     /**
      * @function
-     */
-    componentDidMount: function () {
-        console.log('All cards mount!');
-    },
-
-    /**
-     * @function
      * @returns {XML}
      */
     render: function () {

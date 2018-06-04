@@ -11,13 +11,6 @@ module.exports = React.createClass({
 
     /**
      * @function
-     */
-    componentDidMount: function () {
-        console.log('Empty release card mount!');
-    },
-
-    /**
-     * @function
      * @returns {Array.<Object>}
      */
     readPlatforms: function () {

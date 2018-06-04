@@ -81,8 +81,3 @@ module.exports = React.createClass({
         );
     }
 });
-
-//In <div className='card-buttons'>
-//    <IconButton className='card-tool-button' tooltip="Pobierz ZIP"> <FileDownload /> </IconButton>
-//    <IconButton className='card-tool-button' tooltip="Edytuj"> <ModeEdit /> </IconButton>
-//    <IconButton className='card-tool-button' tooltip="Usuń"> <RemoveFile /> </IconButton>
