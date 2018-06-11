@@ -24,7 +24,7 @@ module.exports = React.createClass({
      * @function
      * @returns {XML}
      */
-    render: function () {
+    render() {
         console.log('render()');
 
         return (

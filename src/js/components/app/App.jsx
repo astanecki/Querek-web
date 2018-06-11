@@ -1,9 +1,10 @@
 import React from 'react';
-import Api from '../services/Api.jsx';
-import TopBar from './TopBar.jsx';
-import Loader from './Loader.jsx';
-import TabVersions from './TabVersions.jsx';
-import config from '../config/Config.jsx';
+
+import config from '../../config/Config.jsx';
+
+import TopBar from '../topBar/TopBar.jsx';
+import Loader from '../loader/Loader.jsx';
+import TabVersions from '../tabs/TabVersions.jsx';
 
 module.exports = React.createClass({
 
@@ -12,7 +13,7 @@ module.exports = React.createClass({
      * @returns {Object}
      */
     getInitialState: function () {
-        this.fetchCodes();
+        this.fetchApps();
 
         return {
             codes: {
@@ -29,14 +30,14 @@ module.exports = React.createClass({
     /**
      * @function
      */
-    fetchCodes() {
-        Api.fetch()
-            .then(({ data }) => {
-                console.log('fetch()', data);
+    fetchApps() {
+        this.props.fetchApps()
+            .then(({ payload }) => {
+                console.log('fetch()', payload.data);
 
                 this.setState({
                     loaderStatus: config.LOADER.HIDDEN,
-                    codes: data
+                    codes: payload.data
                 });
             });
     },
@@ -45,11 +46,15 @@ module.exports = React.createClass({
      * @function
      * @returns {XML}
      */
-    render: function () {
+    render() {
+        const {
+            deleteApp,
+            createApp
+        } = this.props;
+
         return (
             <div className='app'>
                 <TopBar
-                    onAddClick={this.onAddClick}
                     title={config.APP.TITLE}/>
 
                 <Loader
@@ -59,7 +64,9 @@ module.exports = React.createClass({
                     codes={this.state.codes}
                     newReleaseCode={this.state.newReleaseCode}
                     newDeveloperCode={this.state.newDeveloperCode}
-                    fetchCodes={() => this.fetchCodes()}
+                    fetchApps={ () => this.fetchApps() }
+                    deleteApp={ deleteApp }
+                    createApp={ createApp }
                     />
             </div>
         );

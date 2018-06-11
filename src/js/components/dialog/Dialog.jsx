@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Api from '../services/Api.jsx';
-import InputApplicationFile from './InputFile';
+import InputApplicationFile from '../inputFile/InputFile';
 import {AppBar, Dialog, FlatButton, TextField} from 'material-ui';
 
 const customContentStyle = {width: '400px', maxWidth: 'none'};
@@ -36,7 +35,7 @@ module.exports = React.createClass({
     /**
      * @function
      */
-    onClose: function () {
+    onClose() {
         console.log('onClose dialog');
 
         this.props.onClose();
@@ -46,7 +45,7 @@ module.exports = React.createClass({
      * @function
      * @returns {*}
      */
-    prepareNewVersion: function () {
+    prepareNewVersion() {
         return {
             title:          this.title,
             description:    this.description,
@@ -60,7 +59,7 @@ module.exports = React.createClass({
         };
     },
 
-    getDate: function () {
+    getDate() {
         const date = new Date();
 
         return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear()
@@ -76,9 +75,9 @@ module.exports = React.createClass({
             }
         };
 
-        Api.save(this.prepareNewVersion(), options)
+        this.props.createApp(this.prepareNewVersion(), options)
             .then(() => this.props.onClose())
-            .then(() => this.props.fetchCodes())
+            .then(() => this.props.fetchApps())
             .catch(response => console.log('Error response: ', response));
 
         // TODO clear data in dialog
@@ -88,7 +87,7 @@ module.exports = React.createClass({
      * @function
      * @returns {Array.<String>}
      */
-    getSupportedPlatforms: function () {
+    getSupportedPlatforms() {
         var supported = [];
 
         if (this.files.apk) {
@@ -151,7 +150,7 @@ module.exports = React.createClass({
      * @function
      * @returns {XML}
      */
-    render: function () {
+    render() {
         var actions = [
             <FlatButton
                 label="Cancel"

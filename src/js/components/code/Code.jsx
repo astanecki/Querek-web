@@ -1,6 +1,6 @@
 import React from 'react';
-import Config from '../config/Config.jsx';
-import QRCode from '../../libs/QrCode.jsx';
+import Config from '../../config/Config.jsx';
+import QRCode from '../../../libs/QrCode.jsx';
 
 /**
  * Draws QRCode with given version
@@ -23,14 +23,14 @@ module.exports = React.createClass({
      * @function
      * @returns {String}
      */
-    getCodeText: function () {
+    getCodeText() {
         return `${Config.NETWORK.SERVER_IP}/applications/${this.props.type}/${this.props.version}`;
     },
 
     /**
      * @function
      */
-    componentDidMount: function () {
+    componentDidMount() {
         console.log('componentDidMount()');
 
         new QRCode(this.refs.codeElement, {
@@ -44,7 +44,7 @@ module.exports = React.createClass({
      * @function
      * @returns {XML}
      */
-    render: function () {
+    render() {
         console.log('render()');
 
         return (

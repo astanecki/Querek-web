@@ -11,7 +11,7 @@ var path = require('path');
 // https://www.npmjs.com/package/copy-webpack-plugin when index.html should be copied
 
 module.exports = {
-    entry: './src/js/App.jsx',
+    entry: './src/js/index.jsx',
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',

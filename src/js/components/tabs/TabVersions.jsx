@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from './Card.jsx'
-import Dialog from './Dialog.jsx';
-import EmptyReleaseCard from './EmptyReleaseCard.jsx';
-import EmptyDeveloperCard from './EmptyDeveloperCard.jsx';
+import Card from '../card/Card.jsx'
+import Dialog from '../dialog/Dialog.jsx';
+import EmptyReleaseCard from '../emptyCard/EmptyReleaseCard.jsx';
+import EmptyDeveloperCard from '../emptyCard/EmptyDeveloperCard.jsx';
 import {Tab, Tabs}  from 'material-ui';
 
 const style = {
@@ -19,7 +19,7 @@ module.exports = React.createClass({
     /**
      * @function
      */
-    getInitialState: function () {
+    getInitialState() {
         return {
             value: 'release',
             isDialogOpened: false,
@@ -32,7 +32,7 @@ module.exports = React.createClass({
     /**
      * @function
      */
-    addNewReleaseVersion: function () {
+    addNewReleaseVersion() {
         this.setState({
             isDialogOpened: !this.state.isDialogOpened,
             dialogTitle: 'New release version',
@@ -43,7 +43,7 @@ module.exports = React.createClass({
     /**
      * @function
      */
-    addNewDeveloperVersion: function () {
+    addNewDeveloperVersion() {
         this.setState({
             isDialogOpened: !this.state.isDialogOpened,
             dialogTitle: 'New develop version',
@@ -54,26 +54,22 @@ module.exports = React.createClass({
     /**
      * @function
      */
-    onDialogClose: function () {
-        this.setState({
-            isDialogOpened: false
-        });
+    onDialogClose() {
+        this.setState({ isDialogOpened: false });
     },
 
     /**
      * @function
      */
-    handleChange: function (value) {
-        this.setState({
-            value: value
-        });
+    handleChange(value) {
+        this.setState({ value });
     },
 
     /**
      * @function
      */
     onDeletedSuccess() {
-        this.props.fetchCodes();
+        this.props.fetchApps();
     },
 
     /**
@@ -97,7 +93,8 @@ module.exports = React.createClass({
                             {this.props.codes.release.map(code => {
                                 return (
                                     <Card
-                                        fetchCodes={this.props.fetchCodes}
+                                        fetchApps={this.props.fetchApps}
+                                        deleteApp={this.props.deleteApp}
                                         key={code._id}
                                         code={code} />
                                 );
@@ -116,7 +113,8 @@ module.exports = React.createClass({
                             {this.props.codes.developer.map(code => {
                                 return (
                                     <Card
-                                        fetchCodes={this.props.fetchCodes}
+                                        fetchApps={this.props.fetchApps}
+                                        deleteApp={this.props.deleteApp}
                                         key={code._id}
                                         code={code} />
                                 );
@@ -130,7 +128,8 @@ module.exports = React.createClass({
                     title={this.state.dialogTitle}
                     defaultName={this.state.defaultName}
                     open={this.state.isDialogOpened}
-                    fetchCodes={this.props.fetchCodes}
+                    fetchApps={this.props.fetchApps}
+                    createApp={this.props.createApp}
                     onClose={this.onDialogClose}/>
             </div>
         );

@@ -12,7 +12,7 @@ module.exports = React.createClass({
      * @function
      * @returns {XML}
      */
-    render: function () {
+    render() {
         return (
             <AppBar
                 style={style}

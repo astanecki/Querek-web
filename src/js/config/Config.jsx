@@ -12,5 +12,15 @@ module.exports = {
     LOADER: {
         HIDDEN: 'hide',
         SHOWN: 'loading'
-    }
+    },
+
+    SUPPORTED_PLATFORMS: [
+        {
+            name: 'android',
+            extension: 'apk'
+        }, {
+            name: 'ios',
+            extension: 'ipa'
+        }
+    ]
 };

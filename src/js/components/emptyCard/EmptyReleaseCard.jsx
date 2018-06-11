@@ -1,7 +1,6 @@
 import React from 'react';
-import config from '../config/Config.jsx';
-import Code from './Code.jsx';
-import CardPlatforms from './CardPlatforms.jsx';
+import config from '../../config/Config.jsx';
+import CardPlatforms from '../card/CardPlatforms.jsx';
 import Divider from 'material-ui/Divider';
 import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
@@ -13,7 +12,7 @@ module.exports = React.createClass({
      * @function
      * @returns {Array.<Object>}
      */
-    readPlatforms: function () {
+    readPlatforms() {
         return this.props.code.platforms;
     },
 
@@ -21,7 +20,7 @@ module.exports = React.createClass({
      * @function
      * @returns {XML}
      */
-    render: function () {
+    render() {
         return (
             <Card
                 className='card card__empty'>

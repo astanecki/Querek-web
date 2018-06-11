@@ -6,7 +6,7 @@ module.exports = React.createClass({
      * @function
      * @returns {*}
      */
-    generateClassName: function () {
+    generateClassName() {
         if (this.props.enabled) {
             return 'code-platform code-platform-enabled';
         } else {
@@ -18,7 +18,7 @@ module.exports = React.createClass({
      * @function
      * @returns {XML}
      */
-    render: function () {
+    render() {
         return (
             <div
                 className={this.generateClassName()}>

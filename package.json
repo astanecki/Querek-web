@@ -2,7 +2,7 @@
   "name": "Querek",
   "version": "1.0.0",
   "description": "Application for version controling by managing qr codes with apk and ipa files.",
-  "main": "App.jsx",
+  "main": "index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "extract-text-webpack-plugin": "^1.0.1",
+    "immutable": "^3.8.2",
     "material-ui": "0.16.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-redux": "^5.0.7",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^4.0.0",
+    "redux-actions-utils": "0.0.2",
+    "redux-promise": "^0.6.0"
   },
   "devDependencies": {
     "axios": "^0.18.0",

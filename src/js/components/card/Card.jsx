@@ -1,14 +1,10 @@
 import React from 'react';
 
-import ModeEdit from 'material-ui/svg-icons/editor/mode-edit';
-import FileDownload from 'material-ui/svg-icons/file/file-download';
-import RemoveFile from 'material-ui/svg-icons/content/clear';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import {MenuItem, IconMenu, IconButton, Card, CardTitle, CardHeader, CardMedia, CardText, Divider} from 'material-ui';
 
-import Api from '../services/Api.jsx';
-import config from '../config/Config.jsx';
-import Code from './Code.jsx';
+import config from '../../config/Config.jsx';
+import Code from '../code/Code.jsx';
 import CardPlatforms from './CardPlatforms.jsx';
 
 module.exports = React.createClass({
@@ -16,25 +12,25 @@ module.exports = React.createClass({
      * @function
      * @returns {Array.<String>}
      */
-    readPlatforms: function () {
+    readPlatforms() {
         return this.props.code.platforms;
     },
 
     /**
      * @function
      */
-    onRemoveClicked: function () {
+    onRemoveClicked() {
         console.log('Removing ', this.props.code.version);
 
-        Api.delete(this.props.code)
-            .then(() => this.props.fetchCodes());
+        this.props.deleteApp(this.props.code)
+            .then(() => this.props.fetchApps());
     },
 
     /**
      * @function
      * @returns {XML}
      */
-    render: function () {
+    render() {
         return (
             <Card
                 key={this.props.code._id}
