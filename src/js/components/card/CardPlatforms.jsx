@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CardPlatform from './CardPlatform.jsx';
-import CONFIG from '../../config/Config.jsx';
+import CONFIG from '../../config/config.jsx';
 
 module.exports = React.createClass({
     /**

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import CONFIG from '../../config/config.jsx';
 import InputApplicationFile from '../inputFile/InputFile';
 import {AppBar, Dialog, FlatButton, TextField} from 'material-ui';
 
@@ -34,15 +35,6 @@ module.exports = React.createClass({
 
     /**
      * @function
-     */
-    onClose() {
-        console.log('onClose dialog');
-
-        this.props.onClose();
-    },
-
-    /**
-     * @function
      * @returns {*}
      */
     prepareNewVersion() {
@@ -69,16 +61,14 @@ module.exports = React.createClass({
      * @function
      */
     onSubmit() {
-        const options = {
-            onUploadProgress: progressEvent => {
-                console.log('Progress: ',  (progressEvent.loaded / progressEvent.total) * 100 + ' %');
+        this.props.createApp(
+            this.prepareNewVersion(),
+            {
+                onUploadProgress: progressEvent => {
+                    console.log('Progress: ',  (progressEvent.loaded / progressEvent.total) * 100 + ' %');
+                }
             }
-        };
-
-        this.props.createApp(this.prepareNewVersion(), options)
-            .then(() => this.props.onClose())
-            .then(() => this.props.fetchApps())
-            .catch(response => console.log('Error response: ', response));
+        );
 
         // TODO clear data in dialog
     },
@@ -135,7 +125,7 @@ module.exports = React.createClass({
      */
     onVersionChange: function (event) {
         this.version = event.target.value;
-        this.title = 'Fitatu ' + this.version;
+        this.title = `${CONFIG.CLIENT_APP.NAME} ${this.version}`;
     },
 
     /**
@@ -151,11 +141,18 @@ module.exports = React.createClass({
      * @returns {XML}
      */
     render() {
+        const {
+            onClose,
+            isOpened,
+            type,
+            defaultName
+        } = this.props;
+
         var actions = [
             <FlatButton
                 label="Cancel"
                 secondary={true}
-                onClick={this.onClose}
+                onClick={onClose}
                 />,
             <FlatButton
                 label="Submit"
@@ -166,18 +163,18 @@ module.exports = React.createClass({
 
         return (
             <Dialog
-                title={this.props.title}
+                title={type === 'release' ? 'New release version': 'New develop version'}
                 actions={actions}
                 modal={false}
-                open={this.props.open}
-                onRequestClose={this.onClose}
+                open={isOpened}
+                onRequestClose={onClose}
                 contentStyle={customContentStyle}
                 >
 
                 <TextField
                     fullWidth={true}
                     floatingLabelText="Version"
-                    defaultValue={this.props.defaultName}
+                    defaultValue={defaultName}
                     onChange={this.onVersionChange}
                     /><br/>
 

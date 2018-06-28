@@ -1,55 +1,28 @@
 import React from 'react';
 
-import config from '../../config/Config.jsx';
+import config from '../../config/config.jsx';
 
 import TopBar from '../topBar/TopBar.jsx';
 import Loader from '../loader/Loader.jsx';
-import TabVersions from '../tabs/TabVersions.jsx';
+import Dialog from '../dialog/Dialog.jsx';
+import Tabs from '../tabs/Tabs.jsx';
 
 module.exports = React.createClass({
 
-    /**
-     * @function
-     * @returns {Object}
-     */
-    getInitialState: function () {
-        this.fetchApps();
-
-        return {
-            codes: {
-                release: [],
-                developer: []
-            },
-            isMenuOpened: false,
-            newReleaseCode: null,
-            newDeveloperCode: null,
-            loaderStatus: config.LOADER.SHOWN
-        };
+    componentDidMount() {
+        this.props.fetchApps();
     },
 
-    /**
-     * @function
-     */
-    fetchApps() {
-        this.props.fetchApps()
-            .then(({ payload }) => {
-                console.log('fetch()', payload.data);
-
-                this.setState({
-                    loaderStatus: config.LOADER.HIDDEN,
-                    codes: payload.data
-                });
-            });
-    },
-
-    /**
-     * @function
-     * @returns {XML}
-     */
     render() {
         const {
+            clickEmptyCard,
+            closeDialog,
+            fetchApps,
             deleteApp,
-            createApp
+            createApp,
+            changeTab,
+            app: { release, developer },
+            ui: { isDialogOpened, loader, activeTab }
         } = this.props;
 
         return (
@@ -58,16 +31,24 @@ module.exports = React.createClass({
                     title={config.APP.TITLE}/>
 
                 <Loader
-                    loaderStatus={this.state.loaderStatus} />
+                    isVisible={loader} />
 
-                <TabVersions
-                    codes={this.state.codes}
-                    newReleaseCode={this.state.newReleaseCode}
-                    newDeveloperCode={this.state.newDeveloperCode}
-                    fetchApps={ () => this.fetchApps() }
+                <Tabs
+                    release={release}
+                    developer={developer}
+                    activeTab={ activeTab }
+
+                    fetchApps={ fetchApps }
                     deleteApp={ deleteApp }
-                    createApp={ createApp }
-                    />
+                    changeTab={ changeTab }
+                    clickEmptyCard={ clickEmptyCard }
+                />
+
+                <Dialog
+                    type={activeTab}
+                    isOpened={isDialogOpened}
+                    createApp={createApp}
+                    onClose={closeDialog}/>
             </div>
         );
     }

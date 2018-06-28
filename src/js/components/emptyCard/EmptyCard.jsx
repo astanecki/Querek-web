@@ -1,5 +1,5 @@
 import React from 'react';
-import config from '../../config/Config.jsx';
+import CONFIG from '../../config/config.jsx';
 import CardPlatforms from '../card/CardPlatforms.jsx';
 import Divider from 'material-ui/Divider';
 import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
@@ -26,9 +26,9 @@ module.exports = React.createClass({
                 className='card card__empty'>
 
                 <CardHeader
-                    title={"Fitatu"}
+                    title={CONFIG.CLIENT_APP.NAME}
                     subtitle={"Dziś"}
-                    avatar={config.APP.LOGO_URL}/>
+                    avatar={CONFIG.APP.LOGO_URL}/>
 
                 <CardMedia
                     className='card-media'>

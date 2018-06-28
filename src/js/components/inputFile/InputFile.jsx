@@ -13,11 +13,6 @@ const exampleImageInput = {
     opacity: 0
     };
 
-/**
- * Draws QRCode with given version
- *
- * @type {Object}
- */
 module.exports = React.createClass({
 
     /**

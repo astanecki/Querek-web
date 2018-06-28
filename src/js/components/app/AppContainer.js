@@ -1,14 +1,29 @@
 import { connect } from 'react-redux';
 import AppComponent from './App';
-import { fetchApps, deleteApp, createApp } from '../../actions';
+import {
+    fetchApps,
+    deleteApp,
+    createApp,
+    clickEmptyCard,
+    closeDialog,
+    changeTab
+} from '../../actions';
 
 export default connect(
-    function mapStateToProps(state) {
-        return { apps: state.apps };
+    function mapStateToProps(store) {
+        return {
+            app: store.app.toJS(),
+            ui: store.ui.toJS()
+        };
     },
-    {
-        fetchApps,
-        deleteApp,
-        createApp
+    function mapDispatchToProps(dispatch) {
+        return {
+            fetchApps: () => dispatch(fetchApps()),
+            deleteApp: app => dispatch(deleteApp(app)),
+            createApp: (app, options) => dispatch(createApp(app, options)),
+            clickEmptyCard: () => dispatch(clickEmptyCard()),
+            closeDialog: () => dispatch(closeDialog()),
+            changeTab: (value) => dispatch(changeTab(value)),
+        }
     }
 )(AppComponent);

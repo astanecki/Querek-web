@@ -18,7 +18,8 @@
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^4.0.0",
     "redux-actions-utils": "0.0.2",
-    "redux-promise": "^0.6.0"
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "axios": "^0.18.0",

@@ -6,12 +6,7 @@ module.exports = {
     },
 
     NETWORK: {
-        SERVER_IP: 'https://NGROK_HTTPS_ADDRESS'
-    },
-
-    LOADER: {
-        HIDDEN: 'hide',
-        SHOWN: 'loading'
+        SERVER_IP: 'http://localhost:3001'
     },
 
     SUPPORTED_PLATFORMS: [
@@ -22,5 +17,9 @@ module.exports = {
             name: 'ios',
             extension: 'ipa'
         }
-    ]
+    ],
+
+    CLIENT_APP: {
+        NAME: 'Fitatu'
+    }
 };

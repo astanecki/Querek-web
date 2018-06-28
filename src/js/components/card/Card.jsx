@@ -3,7 +3,7 @@ import React from 'react';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import {MenuItem, IconMenu, IconButton, Card, CardTitle, CardHeader, CardMedia, CardText, Divider} from 'material-ui';
 
-import config from '../../config/Config.jsx';
+import config from '../../config/config.jsx';
 import Code from '../code/Code.jsx';
 import CardPlatforms from './CardPlatforms.jsx';
 
@@ -22,8 +22,7 @@ module.exports = React.createClass({
     onRemoveClicked() {
         console.log('Removing ', this.props.code.version);
 
-        this.props.deleteApp(this.props.code)
-            .then(() => this.props.fetchApps());
+        this.props.deleteApp(this.props.code);
     },
 
     /**
@@ -31,14 +30,16 @@ module.exports = React.createClass({
      * @returns {XML}
      */
     render() {
+        const { code } = this.props;
+
         return (
             <Card
-                key={this.props.code._id}
+                key={code._id}
                 className='card'>
 
                 <CardHeader
-                    title={this.props.code.title}
-                    subtitle={this.props.code.date}
+                    title={code.title}
+                    subtitle={code.date}
                     avatar={config.APP.LOGO_URL}>
 
                     <div className='card-buttons'>
@@ -60,13 +61,13 @@ module.exports = React.createClass({
                 <CardMedia
                     className='card-media'>
                     <Code
-                        type={this.props.code.type}
-                        version={this.props.code.version}/>
+                        type={code.type}
+                        version={code.version}/>
                 </CardMedia>
 
                 <CardText
                     className='card-text'>
-                    {this.props.code.description}
+                    {code.description}
                 </CardText>
 
                 <Divider />

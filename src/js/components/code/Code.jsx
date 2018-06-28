@@ -1,5 +1,5 @@
 import React from 'react';
-import Config from '../../config/Config.jsx';
+import Config from '../../config/config.jsx';
 import QRCode from '../../../libs/QrCode.jsx';
 
 /**
@@ -31,8 +31,6 @@ module.exports = React.createClass({
      * @function
      */
     componentDidMount() {
-        console.log('componentDidMount()');
-
         new QRCode(this.refs.codeElement, {
             text: this.getCodeText(),
             width: this.width,
@@ -45,13 +43,18 @@ module.exports = React.createClass({
      * @returns {XML}
      */
     render() {
-        console.log('render()');
+        const {
+            type,
+            version
+        } = this.props;
+
+        console.log('render()', version);
 
         return (
             <div ref="codeElement"
                  className='card-code'
-                 data-version={this.props.version}
-                 data-type={this.props.type}>
+                 data-version={version}
+                 data-type={type}>
             </div>
         );
     }

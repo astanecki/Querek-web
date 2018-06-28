@@ -13,10 +13,9 @@ module.exports = React.createClass({
                 className='loader-container'>
                 <RefreshIndicator
                     size={70}
-                    // required by material-ui
                     left={10}
                     top={10}
-                    status={this.props.loaderStatus}
+                    status={this.props.isVisible ? 'loading' : 'hide'}
                     />
             </div>
         );
